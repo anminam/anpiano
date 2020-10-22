@@ -1,0 +1,31 @@
+$keyWidth: 50px;
+.key {
+  display: flex;
+  border: 1px solid #000;
+  height: 100%;
+  width: $keyWidth;
+  padding-bottom: 5px;
+
+  align-items: flex-end;
+  justify-content: center;
+
+  &.active,
+  &:active {
+    background-color: antiquewhite;
+    // opacity: 0.1;
+  }
+
+  &.black {
+    background-color: black;
+    color: white;
+    height: 70%;
+    width: calc(#{$keyWidth} - 10px);
+    position: absolute;
+
+    &.active,
+    &:active {
+      background-color: #333;
+      // opacity: 0.1;
+    }
+  }
+}

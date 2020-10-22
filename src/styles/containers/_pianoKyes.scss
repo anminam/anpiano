@@ -1,0 +1,9 @@
+.piano-kyes {
+  position: relative;
+  height: 300px;
+  outline: 0;
+  &__whites {
+    height: 100%;
+    display: flex;
+  }
+}
