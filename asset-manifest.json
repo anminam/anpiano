@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/anpiano/static/css/main.ccc1d5b2.chunk.css",
+    "main.js": "/anpiano/static/js/main.8e2fa33d.chunk.js",
+    "main.js.map": "/anpiano/static/js/main.8e2fa33d.chunk.js.map",
+    "runtime-main.js": "/anpiano/static/js/runtime-main.dd4a577b.js",
+    "runtime-main.js.map": "/anpiano/static/js/runtime-main.dd4a577b.js.map",
+    "static/js/2.675ae54f.chunk.js": "/anpiano/static/js/2.675ae54f.chunk.js",
+    "static/js/2.675ae54f.chunk.js.map": "/anpiano/static/js/2.675ae54f.chunk.js.map",
+    "index.html": "/anpiano/index.html",
+    "precache-manifest.69f3954202ec6bfafb69633a7363a385.js": "/anpiano/precache-manifest.69f3954202ec6bfafb69633a7363a385.js",
+    "service-worker.js": "/anpiano/service-worker.js",
+    "static/css/main.ccc1d5b2.chunk.css.map": "/anpiano/static/css/main.ccc1d5b2.chunk.css.map",
+    "static/js/2.675ae54f.chunk.js.LICENSE.txt": "/anpiano/static/js/2.675ae54f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dd4a577b.js",
+    "static/js/2.675ae54f.chunk.js",
+    "static/css/main.ccc1d5b2.chunk.css",
+    "static/js/main.8e2fa33d.chunk.js"
+  ]
+}
