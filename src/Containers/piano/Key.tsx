@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { IKeyTone } from "Interface/IKeyTone";
 import { Utils } from "Core/Utils";
-import * as Tone from "tone";
-const synth = new Tone.Synth().toDestination();
+import { Piano } from "Core/Piano";
+
 // const now = Tone.now();
 
 interface IProps {
@@ -35,8 +35,7 @@ const Key = ({ tone, tones, trigger }: IProps) => {
 
   const start = () => {
     // const now = Tone.now();
-
-    synth.triggerAttackRelease(tone, "8n");
+    Piano.trigger(tone);
   };
 
   const handleClick = () => {
