@@ -2,6 +2,7 @@ import React from "react";
 import PianoKyes from "Containers/PianoKyes";
 import { Utils } from "Core/Utils";
 import * as Tone from "tone";
+import Button from "Components/Button";
 
 const synth = new Tone.Synth().toDestination();
 
@@ -15,7 +16,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <PianoKyes />
-        <button onClick={handleScale}>화음</button>
+        <Button text="화음" onClick={handleScale} />
       </header>
     </div>
   );
