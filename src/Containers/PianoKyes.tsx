@@ -1,12 +1,9 @@
 import { Utils } from "Core/Utils";
 import { IKeyTone } from "Interface/IKeyTone";
+import { IToneKeyboard } from "Interface/IToneKeyboard";
 import React, { useEffect, useState } from "react";
 import Key from "./piano/Key";
 
-interface IToneKeyboard {
-  tone: IKeyTone;
-  isValue: boolean;
-}
 interface IProps {}
 const PianoKyes = ({}: IProps) => {
   const [tones, setTones] = useState<IToneKeyboard[]>();
