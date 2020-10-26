@@ -3,7 +3,9 @@
   height: 300px;
   min-width: 1000px;
   outline: 0;
+
   &__whites {
+    position: relative;
     height: 100%;
     display: flex;
   }

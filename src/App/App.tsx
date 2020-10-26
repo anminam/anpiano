@@ -4,6 +4,7 @@ import { Utils } from "Core/Utils";
 import * as Tone from "tone";
 import Button from "Components/Button";
 import PainoConfig from "Containers/PainoConfig";
+import Lion from "Components/Lion";
 
 const synth = new Tone.Synth().toDestination();
 
@@ -16,7 +17,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <PianoKyes />
+        <div className="top-wapper">
+          <Lion />
+          <PianoKyes />
+        </div>
         <PainoConfig />
         <Button text="화음" onClick={handleScale} />
       </header>

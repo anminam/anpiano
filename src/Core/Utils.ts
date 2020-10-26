@@ -105,9 +105,10 @@ export class Utils {
     }
 
     const targetMinusShap = target.replace("#", "");
-    const parentTone = document.querySelector(`[data-tone=${targetMinusShap}]`);
-    const parnetToneX =
-      (parentTone?.getBoundingClientRect().x || 0) + this.positionStart;
+    const parentTone = document.querySelector<HTMLDivElement>(
+      `[data-tone=${targetMinusShap}]`
+    );
+    const parnetToneX = (parentTone?.offsetLeft || 0) + this.positionStart;
 
     return parnetToneX;
   }
