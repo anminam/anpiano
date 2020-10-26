@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { IKeyTone } from "Interface/IKeyTone";
 import { Utils } from "Core/Utils";
 import { Piano } from "Core/Piano";
+import { useSelector } from "react-redux";
+import { RootState } from "Core/Store";
 
 // const now = Tone.now();
 
@@ -12,6 +14,9 @@ interface IProps {
   onMouseUp: (tone: IKeyTone) => void;
 }
 const Key = ({ tone, isActive, onMouseDown, onMouseUp }: IProps) => {
+  const isPrintTone = useSelector(
+    (state: RootState) => state.piano.isPrintTone
+  );
   const [blackPosition, setBlackPosition] = useState<number>();
   const [isHavePrime] = useState<boolean>(Utils.isPrime(tone));
 
@@ -39,7 +44,7 @@ const Key = ({ tone, isActive, onMouseDown, onMouseUp }: IProps) => {
       onMouseUp={() => onMouseUp(tone)}
       data-tone={tone}
     >
-      <span className="key__name">{tone}</span>
+      {isPrintTone && <span className="key__name">{tone}</span>}
     </div>
   );
 };

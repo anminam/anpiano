@@ -3,6 +3,7 @@ import PianoKyes from "Containers/PianoKyes";
 import { Utils } from "Core/Utils";
 import * as Tone from "tone";
 import Button from "Components/Button";
+import PainoConfig from "Containers/PainoConfig";
 
 const synth = new Tone.Synth().toDestination();
 
@@ -16,6 +17,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <PianoKyes />
+        <PainoConfig />
         <Button text="화음" onClick={handleScale} />
       </header>
     </div>
