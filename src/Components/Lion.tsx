@@ -1,12 +1,16 @@
 import React from "react";
 import LionPng from "Assets/images/lion.png";
+import styled from "styled-components";
 
-const Lion = () => {
+const Logo = styled.img``;
+export interface ILionProps {
+  className: string;
+  size: string;
+}
+const Lion = ({ className, size }: ILionProps) => {
   return (
-    <div className="lion">
-      <div>
-        <img src={LionPng} />
-      </div>
+    <div className={className}>
+      <Logo src={LionPng} />
     </div>
   );
 };

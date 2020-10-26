@@ -4,7 +4,7 @@ import { Utils } from "Core/Utils";
 import * as Tone from "tone";
 import Button from "Components/Button";
 import PainoConfig from "Containers/PainoConfig";
-import Lion from "Components/Lion";
+import LionContainer from "Components/LionConainer";
 
 const synth = new Tone.Synth().toDestination();
 
@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="top-wapper">
-          <Lion />
+          <LionContainer />
           <PianoKyes />
         </div>
         <PainoConfig />
