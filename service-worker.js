@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/anpiano/precache-manifest.d0355e1067446480e895a2170350d64b.js"
+  "/anpiano/precache-manifest.6edd459623c77cd6e875a2e90db1316b.js"
 );
 
 self.addEventListener('message', (event) => {
