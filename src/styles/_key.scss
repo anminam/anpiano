@@ -37,7 +37,7 @@ $key-shadow-spread: 3px;
           position: absolute;
           top: 0px;
           left: 30px;
-          box-shadow: -3px 3px $key-shadow-spread 5px $key-shadow-color;
+          box-shadow: -1px 1px $key-shadow-spread 5px $key-shadow-color;
           // background-color: $key-shadow-color;
           border-bottom-left-radius: $key-bottom-radius-size;
         }
@@ -46,11 +46,13 @@ $key-shadow-spread: 3px;
   }
 
   &.black {
-    background-color: black;
-    color: white;
+    position: absolute;
     height: 70%;
     width: calc(#{$keyWidth} - 10px);
-    position: absolute;
+    z-index: 1;
+    background-color: black;
+    color: white;
+
     // border-bottom-left-radius: 0;
     // border-bottom-right-radius: 0;
 

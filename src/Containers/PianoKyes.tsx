@@ -19,30 +19,32 @@ const PianoKyes = ({}: IProps) => {
     dispatch(pianoRelese(tone));
   };
 
-  const getTonesIndex = (key: string): number => {
+  const getTone = (key: string): IKeyTone | null => {
     let value = Utils.getKeyToTone(key);
-    if (!value) return -1;
+    if (!value) return null;
     const index = tones?.findIndex((v) => {
       return v.tone === value;
     });
-    return index;
+    const toneObj = tones[index];
+    if (!toneObj) return null;
+
+    return toneObj.tone;
   };
 
   // 키보드
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    const index = getTonesIndex(event.key);
-    const toneObj = tones[index];
-    if (!toneObj) return;
-    pressKey(toneObj.tone);
-  };
-  const handleKeyUp = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    const key = event.key;
-    const index = getTonesIndex(key);
-    const toneObj = tones[index];
-    if (!toneObj) return;
-    upKey(toneObj.tone);
+    const tone = getTone(event.key);
+    if (!tone) return;
+    pressKey(tone);
   };
 
+  const handleKeyUp = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    const tone = getTone(event.key);
+    if (!tone) return;
+    upKey(tone);
+  };
+
+  // 마우스
   const handleKeyMouseDown = (tone: IKeyTone) => {
     pressKey(tone);
   };
