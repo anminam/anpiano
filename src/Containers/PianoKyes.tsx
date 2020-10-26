@@ -1,86 +1,58 @@
+import { pianoRelese, pianoTrigger } from "Core/piano/actions";
+import { RootState } from "Core/Store";
 import { Utils } from "Core/Utils";
 import { IKeyTone } from "Interface/IKeyTone";
 import { IToneKeyboard } from "Interface/IToneKeyboard";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Key from "./piano/Key";
 
 interface IProps {}
 const PianoKyes = ({}: IProps) => {
-  const [tones, setTones] = useState<IToneKeyboard[]>();
+  const tones = useSelector((state: RootState) => state.piano.tones);
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    const list = Utils.getKeyTones(3, 4);
-    const newList: IToneKeyboard[] = [];
-    list.forEach((v) => {
-      newList.push({
-        tone: v,
-        isValue: false,
-      });
-    });
-    setTones(newList);
-    // debugger;
-  }, []);
+  const pressKey = (tone: IKeyTone) => {
+    dispatch(pianoTrigger(tone));
+
+    setTimeout(() => {
+      dispatch(pianoRelese(tone));
+    }, 500);
+  };
 
   // 키보드
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     const key = event.key;
     let value = Utils.getKeyToTone(key);
+    if (!value) return;
 
     const index = tones?.findIndex((v) => {
       return v.tone === value;
     });
-
-    updateTones(true, index);
+    const toneObj = tones[index];
+    pressKey(toneObj.tone);
   };
 
-  const handleKeyUp = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    const key = event.key;
-    let value = Utils.getKeyToTone(key);
-
-    const index = tones?.findIndex((v) => {
-      return v.tone === value;
-    });
-
-    updateTones(false, index);
-  };
-
-  const updateTones = (isValue: boolean, index?: number) => {
-    if (index === undefined || index === -1) {
-      return;
-    }
-
-    if (!tones) {
-      return;
-    }
-
-    try {
-      if (tones) {
-        const array: IToneKeyboard[] = [...tones];
-        array[index].isValue = isValue;
-        setTones(array);
-      }
-    } catch (e) {}
+  const handleToneClick = (tone: IKeyTone) => {
+    pressKey(tone);
   };
 
   return (
     <div
       className="piano-kyes"
       onKeyPress={handleKeyDown}
-      onKeyUp={handleKeyUp}
+      // onKeyUp={handleKeyUp}
       tabIndex={0}
     >
-      <div
-        className="piano-kyes__whites"
-        // onKeyDown={handleKeyDown}
-      >
+      <div className="piano-kyes__whites">
         {tones &&
           tones.map((item) => {
             return (
               <Key
                 key={item.tone}
                 tone={item.tone}
-                trigger={item.isValue}
-                // tones={list}
+                onToneClick={handleToneClick}
+                isActive={item.isValue}
               />
             );
           })}

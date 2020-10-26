@@ -2,58 +2,40 @@ import React, { useEffect, useState } from "react";
 import { IKeyTone } from "Interface/IKeyTone";
 import { Utils } from "Core/Utils";
 import { Piano } from "Core/Piano";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "Core/Store";
+import { pianoTrigger } from "Core/piano/actions";
 
 // const now = Tone.now();
 
 interface IProps {
   tone: IKeyTone;
-  tones?: IKeyTone[];
-  trigger?: boolean;
-  onToneClick?: () => void;
+  isActive: boolean;
+  onToneClick: (tone: IKeyTone) => void;
 }
-const Key = ({ tone, tones, trigger }: IProps) => {
+const Key = ({ tone, isActive, onToneClick }: IProps) => {
   const [blackPosition, setBlackPosition] = useState<number>();
-  const [active, setActive] = useState<boolean>(false);
-  const [_trigger, setTrigger] = useState<boolean>(false);
-
-  useEffect(() => {
-    setTrigger(trigger ? true : false);
-  }, [trigger]);
 
   useEffect(() => {
     setBlackPosition(Utils.getBlackPosition(tone));
   }, [tone]);
 
-  useEffect(() => {
-    if (_trigger) {
-      setActive(true);
-      start();
-    } else {
-      setActive(false);
-    }
-  }, [_trigger]);
-
-  const start = () => {
-    // const now = Tone.now();
-    Piano.trigger(tone);
-  };
-
-  const handleClick = () => {
-    setTrigger(true);
-    setTimeout(() => {
-      setTrigger(false);
-    }, 500);
-  };
-
   const className = `key ${tone.includes("#") ? "black" : ""} ${
-    active ? "active" : ""
+    isActive ? "active" : ""
   }`;
+
+  useEffect(() => {
+    if (isActive) {
+      Piano.trigger(tone);
+    } else {
+    }
+  }, [isActive]);
 
   return (
     <div
       className={className}
       style={{ left: blackPosition }}
-      onMouseDown={handleClick}
+      onMouseDown={() => onToneClick(tone)}
       data-tone={tone}
     >
       <span className="key__name">{tone}</span>
