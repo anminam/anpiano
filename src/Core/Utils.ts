@@ -33,7 +33,7 @@ export class Utils {
   }
 
   static initTones(start: number, end: number = 0): IToneKeyboard[] {
-    const list = Utils.getKeyTones(3, 4);
+    const list = Utils.getKeyTones(start, end);
 
     const newList: IToneKeyboard[] = [];
     list.forEach((v) => {

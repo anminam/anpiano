@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 import { IKeyTone } from "Interface/IKeyTone";
 import { Utils } from "Core/Utils";
 import { Piano } from "Core/Piano";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "Core/Store";
-import { pianoTrigger } from "Core/piano/actions";
 
 // const now = Tone.now();
 

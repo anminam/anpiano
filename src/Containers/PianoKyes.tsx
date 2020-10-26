@@ -25,11 +25,11 @@ const PianoKyes = ({}: IProps) => {
     const key = event.key;
     let value = Utils.getKeyToTone(key);
     if (!value) return;
-
     const index = tones?.findIndex((v) => {
       return v.tone === value;
     });
     const toneObj = tones[index];
+    if (!toneObj) return;
     pressKey(toneObj.tone);
   };
 
