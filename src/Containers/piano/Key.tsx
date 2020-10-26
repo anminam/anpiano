@@ -15,7 +15,10 @@ interface IProps {
 }
 const Key = ({ tone, isActive, onMouseDown, onMouseUp }: IProps) => {
   const isPrintTone = useSelector(
-    (state: RootState) => state.piano.isPrintTone
+    (state: RootState) => state.piano.config.isTonePrint
+  );
+  const isKeyboradPrint = useSelector(
+    (state: RootState) => state.piano.config.isKeyboradPrint
   );
   const [blackPosition, setBlackPosition] = useState<number>();
   const [isHavePrime] = useState<boolean>(Utils.isPrime(tone));
@@ -44,7 +47,12 @@ const Key = ({ tone, isActive, onMouseDown, onMouseUp }: IProps) => {
       onMouseUp={() => onMouseUp(tone)}
       data-tone={tone}
     >
-      {isPrintTone && <span className="key__name">{tone}</span>}
+      <div className="label">
+        {isKeyboradPrint && (
+          <div className="key__key_name">{Utils.getKeyByTone(tone)}</div>
+        )}
+        {isPrintTone && <div className="key__tone_name">{tone}</div>}
+      </div>
     </div>
   );
 };
