@@ -1,4 +1,5 @@
 import { IKeyTone } from "Interface/IKeyTone";
+import { IToneKeyboard } from "Interface/IToneKeyboard";
 
 export class Utils {
   static sacleWhite = ["C", "D", "E", "F", "G", "A", "B"];
@@ -29,6 +30,20 @@ export class Utils {
       list = [...list, ...this.makeScaleAll(i)];
     }
     return list;
+  }
+
+  static initTones(start: number, end: number = 0): IToneKeyboard[] {
+    const list = Utils.getKeyTones(3, 4);
+
+    const newList: IToneKeyboard[] = [];
+    list.forEach((v) => {
+      newList.push({
+        tone: v,
+        isValue: false,
+      });
+    });
+
+    return newList;
   }
 
   static getScale5(startTone: IKeyTone): IKeyTone[] {
