@@ -1,7 +1,9 @@
 import { IKeyTone } from "Interface/IKeyTone";
 import { IToneKeyboard } from "Interface/IToneKeyboard";
 import { Tone } from "tone/build/esm/core/Tone";
-
+interface IKeyValue {
+  [key: string]: IKeyTone;
+}
 export class Utils {
   static sacleWhite = ["C", "D", "E", "F", "G", "A", "B"];
   static sacleBlack = ["C", "D", "F", "G", "A"];
@@ -63,32 +65,37 @@ export class Utils {
     return a;
   }
 
+  static keyObj: IKeyValue = {
+    a: "C3" as IKeyTone,
+    w: "C#3" as IKeyTone,
+    s: "D3" as IKeyTone,
+    e: "D#3" as IKeyTone,
+    d: "E3" as IKeyTone,
+    f: "F3" as IKeyTone,
+    t: "F#3" as IKeyTone,
+    g: "G3" as IKeyTone,
+    y: "G#3" as IKeyTone,
+    h: "A3" as IKeyTone,
+    u: "A#3" as IKeyTone,
+    j: "B3" as IKeyTone,
+    i: "B#3" as IKeyTone,
+    k: "C4" as IKeyTone,
+  };
+
   static getKeyToTone(key: string): IKeyTone | undefined {
     let result: IKeyTone | undefined;
-    interface IKeyValue {
-      [key: string]: IKeyTone;
-    }
-    const obj: IKeyValue = {
-      a: "C3" as IKeyTone,
-      w: "C#3" as IKeyTone,
-      s: "D3" as IKeyTone,
-      e: "D#3" as IKeyTone,
-      d: "E3" as IKeyTone,
-      f: "F3" as IKeyTone,
-      t: "F#3" as IKeyTone,
-      g: "G3" as IKeyTone,
-      y: "G#3" as IKeyTone,
-      h: "A3" as IKeyTone,
-      u: "A#3" as IKeyTone,
-      j: "B3" as IKeyTone,
-      i: "B#3" as IKeyTone,
-      k: "C4" as IKeyTone,
-    };
 
-    if (obj.hasOwnProperty(key)) {
-      result = obj[key];
+    if (Utils.keyObj.hasOwnProperty(key)) {
+      result = Utils.keyObj[key];
     }
     return result;
+  }
+
+  static getKeyByTone(tone: IKeyTone): string {
+    const result = Object.keys(this.keyObj).find(
+      (v) => this.keyObj[v] === tone
+    );
+    return result as string;
   }
 
   static positionStart = 30;
