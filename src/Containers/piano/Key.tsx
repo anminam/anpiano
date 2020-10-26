@@ -8,18 +8,21 @@ import { Piano } from "Core/Piano";
 interface IProps {
   tone: IKeyTone;
   isActive: boolean;
-  onToneClick: (tone: IKeyTone) => void;
+  onMouseDown: (tone: IKeyTone) => void;
+  onMouseUp: (tone: IKeyTone) => void;
 }
-const Key = ({ tone, isActive, onToneClick }: IProps) => {
+const Key = ({ tone, isActive, onMouseDown, onMouseUp }: IProps) => {
   const [blackPosition, setBlackPosition] = useState<number>();
+  const [isHavePrime] = useState<boolean>(Utils.isPrime(tone));
 
   useEffect(() => {
     setBlackPosition(Utils.getBlackPosition(tone));
   }, [tone]);
 
-  const className = `key ${tone.includes("#") ? "black" : ""} ${
-    isActive ? "active" : ""
-  }`;
+  const className = `key ${tone.includes("#") ? "black" : "white"} ${
+    isHavePrime ? "prime" : ""
+  }
+  ${isActive ? "active" : ""}`;
 
   useEffect(() => {
     if (isActive) {
@@ -32,7 +35,8 @@ const Key = ({ tone, isActive, onToneClick }: IProps) => {
     <div
       className={className}
       style={{ left: blackPosition }}
-      onMouseDown={() => onToneClick(tone)}
+      onMouseDown={() => onMouseDown(tone)}
+      onMouseUp={() => onMouseUp(tone)}
       data-tone={tone}
     >
       <span className="key__name">{tone}</span>

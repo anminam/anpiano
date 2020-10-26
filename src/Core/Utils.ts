@@ -1,5 +1,6 @@
 import { IKeyTone } from "Interface/IKeyTone";
 import { IToneKeyboard } from "Interface/IToneKeyboard";
+import { Tone } from "tone/build/esm/core/Tone";
 
 export class Utils {
   static sacleWhite = ["C", "D", "E", "F", "G", "A", "B"];
@@ -102,5 +103,13 @@ export class Utils {
       (parentTone?.getBoundingClientRect().x || 0) + this.positionStart;
 
     return parnetToneX;
+  }
+
+  static isPrime(tone: IKeyTone): boolean {
+    if (tone.includes("E") || tone.includes("B")) {
+      return false;
+    }
+
+    return true;
   }
 }

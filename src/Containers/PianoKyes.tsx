@@ -14,34 +14,48 @@ const PianoKyes = ({}: IProps) => {
 
   const pressKey = (tone: IKeyTone) => {
     dispatch(pianoTrigger(tone));
+  };
 
-    setTimeout(() => {
-      dispatch(pianoRelese(tone));
-    }, 500);
+  const upKey = (tone: IKeyTone) => {
+    dispatch(pianoRelese(tone));
+  };
+
+  const getTonesIndex = (key: string): number => {
+    let value = Utils.getKeyToTone(key);
+    if (!value) return -1;
+    const index = tones?.findIndex((v) => {
+      return v.tone === value;
+    });
+    return index;
   };
 
   // 키보드
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    const key = event.key;
-    let value = Utils.getKeyToTone(key);
-    if (!value) return;
-    const index = tones?.findIndex((v) => {
-      return v.tone === value;
-    });
+    const index = getTonesIndex(event.key);
     const toneObj = tones[index];
     if (!toneObj) return;
     pressKey(toneObj.tone);
   };
+  const handleKeyUp = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    const key = event.key;
+    const index = getTonesIndex(event.key);
+    const toneObj = tones[index];
+    if (!toneObj) return;
+    upKey(toneObj.tone);
+  };
 
-  const handleToneClick = (tone: IKeyTone) => {
+  const handleKeyMouseDown = (tone: IKeyTone) => {
     pressKey(tone);
+  };
+  const handleKeyMouseUp = (tone: IKeyTone) => {
+    upKey(tone);
   };
 
   return (
     <div
       className="piano-kyes"
       onKeyPress={handleKeyDown}
-      // onKeyUp={handleKeyUp}
+      onKeyUp={handleKeyUp}
       tabIndex={0}
     >
       <div className="piano-kyes__whites">
@@ -51,7 +65,8 @@ const PianoKyes = ({}: IProps) => {
               <Key
                 key={item.tone}
                 tone={item.tone}
-                onToneClick={handleToneClick}
+                onMouseDown={handleKeyMouseDown}
+                onMouseUp={handleKeyMouseUp}
                 isActive={item.isValue}
               />
             );
