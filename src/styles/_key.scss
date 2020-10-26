@@ -1,6 +1,7 @@
 $keyWidth: 50px;
 $key-bottom-radius-size: 5px;
 $key-shadow-color: #555;
+$key-shadow-spread: 3px;
 .key {
   position: relative;
   display: flex;
@@ -18,8 +19,8 @@ $key-shadow-color: #555;
   &.white {
     &.active,
     &:active {
-      // background-color: antiquewhite;
-      box-shadow: -8px 0px 2px 0px $key-shadow-color inset;
+      transform: translateY(-2px);
+      box-shadow: -5px 0px $key-shadow-spread 0px $key-shadow-color inset;
     }
 
     &.prime {
@@ -31,14 +32,14 @@ $key-shadow-color: #555;
         ::after {
           content: " ";
           background-color: black;
-          width: 22px;
+          width: 15px;
           height: calc(70%);
           position: absolute;
           top: 0px;
           left: 30px;
-          box-shadow: -9px 3px 4px 5px $key-shadow-color;
+          box-shadow: -3px 3px $key-shadow-spread 5px $key-shadow-color;
           // background-color: $key-shadow-color;
-          // border-bottom-left-radius: $key-bottom-radius-size;
+          border-bottom-left-radius: $key-bottom-radius-size;
         }
       }
     }

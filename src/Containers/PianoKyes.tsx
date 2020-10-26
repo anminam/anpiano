@@ -2,8 +2,7 @@ import { pianoRelese, pianoTrigger } from "Core/piano/actions";
 import { RootState } from "Core/Store";
 import { Utils } from "Core/Utils";
 import { IKeyTone } from "Interface/IKeyTone";
-import { IToneKeyboard } from "Interface/IToneKeyboard";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Key from "./piano/Key";
 
@@ -38,7 +37,7 @@ const PianoKyes = ({}: IProps) => {
   };
   const handleKeyUp = (event: React.KeyboardEvent<HTMLDivElement>) => {
     const key = event.key;
-    const index = getTonesIndex(event.key);
+    const index = getTonesIndex(key);
     const toneObj = tones[index];
     if (!toneObj) return;
     upKey(toneObj.tone);
