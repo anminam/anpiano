@@ -1,7 +1,9 @@
 $keyWidth: 50px;
+$key-bottom-radius-size: 5px;
+$key-shadow-color: #555;
 .key {
+  position: relative;
   display: flex;
-  border: 1px solid #000;
   height: 100%;
   width: $keyWidth;
   padding-bottom: 5px;
@@ -9,10 +11,37 @@ $keyWidth: 50px;
   align-items: flex-end;
   justify-content: center;
 
-  &.active,
-  &:active {
-    background-color: antiquewhite;
-    // opacity: 0.1;
+  border: 1px solid #000;
+  border-bottom-left-radius: $key-bottom-radius-size;
+  border-bottom-right-radius: $key-bottom-radius-size;
+
+  &.white {
+    &.active,
+    &:active {
+      // background-color: antiquewhite;
+      box-shadow: -8px 0px 2px 0px $key-shadow-color inset;
+    }
+
+    &.prime {
+      &.active,
+      &:active {
+        // background-color: antiquewhite;
+        // box-shadow: -8px 0px 2px 0px $key-shadow-color inset;
+        // opacity: 0.1;
+        ::after {
+          content: " ";
+          background-color: black;
+          width: 22px;
+          height: calc(70%);
+          position: absolute;
+          top: 0px;
+          left: 30px;
+          box-shadow: -9px 3px 4px 5px $key-shadow-color;
+          // background-color: $key-shadow-color;
+          // border-bottom-left-radius: $key-bottom-radius-size;
+        }
+      }
+    }
   }
 
   &.black {
@@ -21,6 +50,8 @@ $keyWidth: 50px;
     height: 70%;
     width: calc(#{$keyWidth} - 10px);
     position: absolute;
+    // border-bottom-left-radius: 0;
+    // border-bottom-right-radius: 0;
 
     &.active,
     &:active {
