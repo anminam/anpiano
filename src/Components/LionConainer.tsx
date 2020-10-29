@@ -1,20 +1,24 @@
+import { RootState } from "Core/Store";
 import React from "react";
+import { useSelector } from "react-redux";
 import styled, { keyframes } from "styled-components";
 import Lion, { ILionProps } from "./Lion";
 
 const LOGO_SIZE = "60px";
-const DURATION = "0.5s";
+const DURATION = "1s";
 const SHADOW_HEIGHT = `${Math.round(48 / 5)}px`;
 const DROP_HEIGHT = "200px";
 const OFFSET = "40px";
 
 const bounce = keyframes`
-  from {
-    transform: translateY(${DROP_HEIGHT})
-  }
-  to {
-    transform: translateY(100px);
-  }
+  0%   {transform: translatey(0px);}
+  20%  {transform: translatey(-100px);}
+  75%  {transform: translatey(-10px);}
+  80%  {transform: translatey(0px);}
+  85%  {transform: translatey(-8px);}
+  90%  {transform: translatey(0px);}
+  95%  {transform: translatey(-5px);}
+  100% {transform: translatey(0);}
 `;
 
 const grow = keyframes`
@@ -36,8 +40,7 @@ const Container = styled.div`
 const LogoWrapper = styled(Lion)<ILionProps>`
   width: ${LOGO_SIZE};
   position: absolute;
-  top: ${OFFSET};
-  left: calc(50% - ${LOGO_SIZE} / 2);
+  bottom: 10px;
   animation-name: ${bounce};
   animation-duration: ${DURATION};
   animation-direction: alternate;
@@ -64,8 +67,11 @@ const Shadow = styled.div`
 `;
 
 function LionContainer() {
+  const isViewLion = useSelector(
+    (state: RootState) => state.piano.config.isViewLion
+  );
   return (
-    <Container>
+    <Container className={isViewLion ? "" : "none"}>
       <LogoWrapper className={"lion"} size={LOGO_SIZE} />
       <Shadow />
     </Container>
