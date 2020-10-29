@@ -19,6 +19,9 @@ const PainoConfig = () => {
   const isKeyboradPrint = useSelector(
     (state: RootState) => state.piano.config.isKeyboradPrint
   );
+  const isViewLionCheckBox = useSelector(
+    (state: RootState) => state.piano.config.isViewLion
+  );
 
   const handleIsKeyboardPrintCheckboxChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -46,6 +49,17 @@ const PainoConfig = () => {
             onChange={handleIsKeyboardPrintCheckboxChange}
           />
           <label htmlFor="isKeyboardPrintCheckBox">키보드 보이기</label>
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            id="isViewLionCheckBox"
+            checked={isViewLionCheckBox}
+            onChange={(event) =>
+              dispatch(setConfig("isViewLion", event.target.checked))
+            }
+          />
+          <label htmlFor="isViewLionCheckBox">라이언 보이기</label>
         </li>
       </ul>
     </div>
