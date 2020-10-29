@@ -20,6 +20,7 @@ const initState: IState = {
   config: {
     isTonePrint: true,
     isKeyboradPrint: false,
+    isViewLion: false,
   },
 };
 
