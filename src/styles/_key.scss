@@ -16,6 +16,8 @@ $key-shadow-spread: 3px;
   border-bottom-left-radius: $key-bottom-radius-size;
   border-bottom-right-radius: $key-bottom-radius-size;
 
+  transition: 0.1s;
+
   &.white {
     &.active,
     &:active {

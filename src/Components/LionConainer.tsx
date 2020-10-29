@@ -13,11 +13,11 @@ const OFFSET = "40px";
 const bounce = keyframes`
   0%   {transform: translatey(0px);}
   20%  {transform: translatey(-100px);}
-  75%  {transform: translatey(-10px);}
+  25%  {transform: translatey(-110px);}
   80%  {transform: translatey(0px);}
-  85%  {transform: translatey(-8px);}
+  82%  {transform: translatey(-5px);}
   90%  {transform: translatey(0px);}
-  95%  {transform: translatey(-5px);}
+  92%  {transform: translatey(-3px);}
   100% {transform: translatey(0);}
 `;
 
