@@ -1,0 +1,36 @@
+$side-menu-width: 300px;
+.side_menu {
+  position: absolute;
+  top: 0;
+  left: -$side-menu-width;
+  width: $side-menu-width;
+  height: 100%;
+  transition: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  background-color: black;
+  z-index: 100;
+  padding-left: 1em;
+
+  &.open {
+    left: 0;
+  }
+
+  color: white;
+  font-size: 1.2rem;
+  &__list {
+    li {
+      margin: 0.3em 0;
+    }
+  }
+  &__title {
+    font-size: 2rem;
+  }
+  &__button_wapper {
+    padding: 1em;
+    padding-left: 0;
+    .menu-button {
+      > div {
+        background-color: white;
+      }
+    }
+  }
+}

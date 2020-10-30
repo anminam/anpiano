@@ -21,6 +21,7 @@ const initState: IState = {
     isTonePrint: true,
     isKeyboradPrint: true,
     isViewLion: false,
+    isSideMenuOpen: false,
   },
 };
 
