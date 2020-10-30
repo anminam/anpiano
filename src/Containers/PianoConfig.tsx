@@ -3,7 +3,7 @@ import { RootState } from "Core/Store";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-const PainoConfig = () => {
+const PianoConfig = () => {
   const dispatch = useDispatch();
 
   const isPrintTone = useSelector(
@@ -66,4 +66,4 @@ const PainoConfig = () => {
   );
 };
 
-export default PainoConfig;
+export default PianoConfig;
