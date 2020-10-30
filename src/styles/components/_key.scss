@@ -55,13 +55,16 @@ $key-shadow-spread: 3px;
     z-index: 1;
     background-color: black;
     color: white;
+    box-shadow: 1px 1px 3px black;
 
     // border-bottom-left-radius: 0;
     // border-bottom-right-radius: 0;
 
     &.active,
     &:active {
-      background-color: #333;
+      box-shadow: none;
+      background-color: #111;
+      transform: scaleY(1.01);
       // opacity: 0.1;
     }
   }
