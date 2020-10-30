@@ -66,10 +66,13 @@ export class Utils {
     return list;
   }
 
-  static keyObj: IKeyValue = {
+  static keyMapObj: IKeyValue = {
     a: "C3" as IKeyTone,
+    ㅁ: "C3" as IKeyTone,
     w: "C#3" as IKeyTone,
+    ㅈ: "C#3" as IKeyTone,
     s: "D3" as IKeyTone,
+    ㄴ: "D3" as IKeyTone,
     e: "D#3" as IKeyTone,
     d: "E3" as IKeyTone,
     f: "F3" as IKeyTone,
@@ -79,22 +82,27 @@ export class Utils {
     h: "A3" as IKeyTone,
     u: "A#3" as IKeyTone,
     j: "B3" as IKeyTone,
-    i: "B#3" as IKeyTone,
     k: "C4" as IKeyTone,
+    o: "C#4" as IKeyTone,
+    l: "D4" as IKeyTone,
+    p: "D#4" as IKeyTone,
+    ";": "E4" as IKeyTone,
+    "'": "F4" as IKeyTone,
+    "]": "F#4" as IKeyTone,
   };
 
   static getKeyToTone(key: string): IKeyTone | undefined {
     let result: IKeyTone | undefined;
 
-    if (Utils.keyObj.hasOwnProperty(key)) {
-      result = Utils.keyObj[key];
+    if (Utils.keyMapObj.hasOwnProperty(key)) {
+      result = Utils.keyMapObj[key];
     }
     return result;
   }
 
   static getKeyByTone(tone: IKeyTone): string {
-    const result = Object.keys(this.keyObj).find(
-      (v) => this.keyObj[v] === tone
+    const result = Object.keys(this.keyMapObj).find(
+      (v) => this.keyMapObj[v] === tone
     );
     return result as string;
   }
