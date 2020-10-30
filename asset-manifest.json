@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/anpiano/static/css/main.a09662e2.chunk.css",
-    "main.js": "/anpiano/static/js/main.9e1cc4b9.chunk.js",
-    "main.js.map": "/anpiano/static/js/main.9e1cc4b9.chunk.js.map",
+    "main.css": "/anpiano/static/css/main.56f65be3.chunk.css",
+    "main.js": "/anpiano/static/js/main.a10a58bf.chunk.js",
+    "main.js.map": "/anpiano/static/js/main.a10a58bf.chunk.js.map",
     "runtime-main.js": "/anpiano/static/js/runtime-main.dd4a577b.js",
     "runtime-main.js.map": "/anpiano/static/js/runtime-main.dd4a577b.js.map",
     "static/js/2.f85a856b.chunk.js": "/anpiano/static/js/2.f85a856b.chunk.js",
     "static/js/2.f85a856b.chunk.js.map": "/anpiano/static/js/2.f85a856b.chunk.js.map",
     "index.html": "/anpiano/index.html",
-    "precache-manifest.366597335612d8202cc4499ee317f706.js": "/anpiano/precache-manifest.366597335612d8202cc4499ee317f706.js",
+    "precache-manifest.0d58d6976fcd031a1b51340259fc13fe.js": "/anpiano/precache-manifest.0d58d6976fcd031a1b51340259fc13fe.js",
     "service-worker.js": "/anpiano/service-worker.js",
-    "static/css/main.a09662e2.chunk.css.map": "/anpiano/static/css/main.a09662e2.chunk.css.map",
+    "static/css/main.56f65be3.chunk.css.map": "/anpiano/static/css/main.56f65be3.chunk.css.map",
     "static/js/2.f85a856b.chunk.js.LICENSE.txt": "/anpiano/static/js/2.f85a856b.chunk.js.LICENSE.txt",
     "static/media/lion.png": "/anpiano/static/media/lion.210fda4e.png"
   },
   "entrypoints": [
     "static/js/runtime-main.dd4a577b.js",
     "static/js/2.f85a856b.chunk.js",
-    "static/css/main.a09662e2.chunk.css",
-    "static/js/main.9e1cc4b9.chunk.js"
+    "static/css/main.56f65be3.chunk.css",
+    "static/js/main.a10a58bf.chunk.js"
   ]
 }
