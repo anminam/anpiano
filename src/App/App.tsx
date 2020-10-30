@@ -1,19 +1,10 @@
 import React from "react";
 import PianoKyes from "Containers/PianoKyes";
-import { Utils } from "Core/Utils";
-import * as Tone from "tone";
-import Button from "Components/Button";
-import PainoConfig from "Containers/PainoConfig";
+import PianoConfig from "Containers/PianoConfig";
 import LionContainer from "Components/LionConainer";
-
-const synth = new Tone.Synth().toDestination();
+import PianoScalePractice from "Containers/PianoScalePractice";
 
 function App() {
-  const handleScale = () => {
-    const list = Utils.getScale5("C3");
-    const now = Tone.now();
-    list.forEach((v, i) => synth.triggerAttackRelease(v, "8n", now + i * 0.5));
-  };
   return (
     <div className="App">
       <header className="App-header">
@@ -21,8 +12,8 @@ function App() {
           <LionContainer />
           <PianoKyes />
         </div>
-        <PainoConfig />
-        <Button text="화음" onClick={handleScale} />
+        <PianoConfig />
+        <PianoScalePractice />
       </header>
     </div>
   );
