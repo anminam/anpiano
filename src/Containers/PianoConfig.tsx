@@ -1,3 +1,4 @@
+import Checkbox from "Components/Checkbox";
 import { setConfig, setPrintTone } from "Core/piano/actions";
 import { RootState } from "Core/Store";
 import React from "react";
@@ -6,22 +7,13 @@ import { useDispatch, useSelector } from "react-redux";
 const PianoConfig = () => {
   const dispatch = useDispatch();
 
-  const isPrintTone = useSelector(
-    (state: RootState) => state.piano.config.isTonePrint
-  );
+  const configObj = useSelector((state: RootState) => state.piano.config);
   const handleIsPrintCheckboxChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const { checked } = event.target;
     dispatch(setConfig("isTonePrint", checked));
   };
-
-  const isKeyboradPrint = useSelector(
-    (state: RootState) => state.piano.config.isKeyboradPrint
-  );
-  const isViewLionCheckBox = useSelector(
-    (state: RootState) => state.piano.config.isViewLion
-  );
 
   const handleIsKeyboardPrintCheckboxChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -33,33 +25,30 @@ const PianoConfig = () => {
     <div className="piano_config">
       <ul>
         <li>
-          <input
-            type="checkbox"
-            id="isPrintBox"
-            checked={isPrintTone}
-            onChange={handleIsPrintCheckboxChange}
+          <Checkbox
+            id={"isPrintBox"}
+            value={configObj.isTonePrint}
+            onChanged={handleIsPrintCheckboxChange}
+            text={"음계보이기"}
           />
-          <label htmlFor="isPrintBox">음계 보이기</label>
         </li>
         <li>
-          <input
-            type="checkbox"
-            id="isKeyboardPrintCheckBox"
-            checked={isKeyboradPrint}
-            onChange={handleIsKeyboardPrintCheckboxChange}
+          <Checkbox
+            id={"isKeyboardPrintCheckBox"}
+            value={configObj.isKeyboradPrint}
+            onChanged={handleIsKeyboardPrintCheckboxChange}
+            text={"키보드 보이기"}
           />
-          <label htmlFor="isKeyboardPrintCheckBox">키보드 보이기</label>
         </li>
         <li>
-          <input
-            type="checkbox"
-            id="isViewLionCheckBox"
-            checked={isViewLionCheckBox}
-            onChange={(event) =>
+          <Checkbox
+            id={"isViewLionCheckBox"}
+            value={configObj.isViewLion}
+            onChanged={(event) =>
               dispatch(setConfig("isViewLion", event.target.checked))
             }
+            text={"라이언 보이기"}
           />
-          <label htmlFor="isViewLionCheckBox">라이언 보이기</label>
         </li>
       </ul>
     </div>

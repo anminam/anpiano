@@ -37,7 +37,7 @@ const usePianoKey = () => {
     speed: number = 100
   ) => {
     if (Array.isArray(tone)) {
-      const tones = [...tone];
+      const tones = [...tone].reverse();
 
       const timeFunc = setIntervali(
         () => {
