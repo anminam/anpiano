@@ -11,7 +11,7 @@ const PianoScalePractice = () => {
   };
   return (
     <div className="piano_scale_container">
-      <Button text="화음" onClick={handleScale} />
+      <Button text="C Scale" onClick={handleScale} />
     </div>
   );
 };
