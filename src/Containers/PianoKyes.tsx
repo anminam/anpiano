@@ -1,6 +1,7 @@
 import { pianoRelese, pianoTrigger } from "Core/piano/actions";
 import { RootState } from "Core/Store";
 import { Utils } from "Core/Utils";
+import usePianoKey from "Hooks/usePianoKey";
 import { IKeyTone } from "Interface/IKeyTone";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,16 +9,17 @@ import Key from "./piano/Key";
 
 interface IProps {}
 const PianoKyes = ({}: IProps) => {
-  const tones = useSelector((state: RootState) => state.piano.tones);
-  const dispatch = useDispatch();
+  const { tones, downKey, upKey } = usePianoKey();
+  // const tones = useSelector((state: RootState) => state.piano.tones);
+  // const dispatch = useDispatch();
 
-  const pressKey = (tone: IKeyTone) => {
-    dispatch(pianoTrigger(tone));
-  };
+  // const pressKey = (tone: IKeyTone) => {
+  //   dispatch(pianoTrigger(tone));
+  // };
 
-  const upKey = (tone: IKeyTone) => {
-    dispatch(pianoRelese(tone));
-  };
+  // const upKey = (tone: IKeyTone) => {
+  //   dispatch(pianoRelese(tone));
+  // };
 
   const getTone = (key: string): IKeyTone | null => {
     let value = Utils.getKeyToTone(key);
@@ -35,7 +37,7 @@ const PianoKyes = ({}: IProps) => {
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     const tone = getTone(event.key);
     if (!tone) return;
-    pressKey(tone);
+    downKey(tone);
   };
 
   const handleKeyUp = (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -46,7 +48,7 @@ const PianoKyes = ({}: IProps) => {
 
   // 마우스
   const handleKeyMouseDown = (tone: IKeyTone) => {
-    pressKey(tone);
+    downKey(tone);
   };
   const handleKeyMouseUp = (tone: IKeyTone) => {
     upKey(tone);
