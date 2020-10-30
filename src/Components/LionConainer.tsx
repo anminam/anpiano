@@ -57,7 +57,7 @@ const Shadow = styled.div`
     rgba(150, 150, 150, 0.05)
   );
   position: absolute;
-  top: calc(${OFFSET} + ${DROP_HEIGHT} + ${LOGO_SIZE} - 1.5 * ${SHADOW_HEIGHT});
+  bottom: 4px;
   left: calc(50% - ${LOGO_SIZE} / 2);
   // animation-name: ${grow};
   animation-duration: ${DURATION};

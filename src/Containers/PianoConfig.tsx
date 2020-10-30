@@ -22,7 +22,7 @@ const PianoConfig = () => {
     dispatch(setConfig("isKeyboradPrint", checked));
   };
   return (
-    <div className="piano_config">
+    <div className="piano_config container">
       <ul>
         <li>
           <Checkbox

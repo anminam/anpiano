@@ -10,16 +10,6 @@ import Key from "./piano/Key";
 interface IProps {}
 const PianoKyes = ({}: IProps) => {
   const { tones, downKey, upKey } = usePianoKey();
-  // const tones = useSelector((state: RootState) => state.piano.tones);
-  // const dispatch = useDispatch();
-
-  // const pressKey = (tone: IKeyTone) => {
-  //   dispatch(pianoTrigger(tone));
-  // };
-
-  // const upKey = (tone: IKeyTone) => {
-  //   dispatch(pianoRelese(tone));
-  // };
 
   const getTone = (key: string): IKeyTone | null => {
     let value = Utils.getKeyToTone(key);
@@ -61,6 +51,9 @@ const PianoKyes = ({}: IProps) => {
       onKeyUp={handleKeyUp}
       tabIndex={0}
     >
+      <div className="piano-kyes__header">
+        <h2>Anminam's Piano</h2>
+      </div>
       <div className="piano-kyes__whites">
         {tones &&
           tones.map((item) => {

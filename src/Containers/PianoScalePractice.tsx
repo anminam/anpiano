@@ -11,7 +11,7 @@ const PianoScalePractice = () => {
     triggerAttackRelease(list, "8n", 500);
   };
   return (
-    <div className="piano_scale_container">
+    <div className="piano_scale_container container">
       <ul>
         <li>
           <Button text="C Scale" onClick={() => handleScale("C3")} />
