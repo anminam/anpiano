@@ -50,19 +50,20 @@ export class Utils {
   }
 
   static getScale5(startTone: IKeyTone): IKeyTone[] {
-    const a: IKeyTone[] = [
-      "C3",
-      "D3",
-      "E3",
-      "F3",
-      "G3",
-      "F3",
-      "E3",
-      "D3",
-      "C3",
-    ];
+    const obj: any = {
+      C3: ["C3", "D3", "E3", "F3", "G3"],
+      "C#3": ["C#3", "D#3", "F3", "F#3", "G#3"],
+    };
 
-    return a;
+    let list = [];
+    if (obj.hasOwnProperty(startTone)) {
+      list = obj[startTone];
+      list.push(list[3]);
+      list.push(list[2]);
+      list.push(list[1]);
+      list.push(list[0]);
+    }
+    return list;
   }
 
   static keyObj: IKeyValue = {
