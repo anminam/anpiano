@@ -15,10 +15,14 @@ const SideMenu = () => {
       <div className="side_menu__title">Menu</div>
       <ul className="side_menu__list">
         <li>
-          <h3 className="item-name">Vocal</h3>
+          <button type="button">
+            <h3 className="item-name">Vocal</h3>
+          </button>
         </li>
         <li>
-          <h3 className="item-name">Piano</h3>
+          <button type="button">
+            <h3 className="item-name">Piano</h3>
+          </button>
         </li>
       </ul>
     </div>

@@ -8,3 +8,11 @@ ul,
 li {
   list-style: none;
 }
+
+button {
+  font-size: inherit;
+  background: inherit;
+  color: inherit;
+  border: inherit;
+  cursor: pointer;
+}
