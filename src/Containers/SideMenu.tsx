@@ -12,8 +12,8 @@ const SideMenu = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className={`side_menu`}>
-      <div className={`side_menu__wapper ${isSideMenuOpen ? "open" : ""}`}>
+    <div className={`side_menu ${isSideMenuOpen ? "open" : ""}`}>
+      <div className="side_menu__wapper">
         <div
           className="side_menu__background"
           onClick={() => dispatch(setConfig("isSideMenuOpen", false))}
